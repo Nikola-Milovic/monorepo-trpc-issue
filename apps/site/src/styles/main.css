@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --PhoneInput-color--focus: #955ca6 !important;
+}
+.flex-row-centered {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.flex-row-centered .flex-fix-item:first-child {
+  margin-left: auto;
+}
+
+.flex-row-centered .flex-fix-item:last-child {
+  margin-right: auto;
+}
+
+.react-datepicker__year-select,
+.react-datepicker__month-select {
+  padding: 4px 4px 4px 4px;
+  background: #ffffff;
+  text-align: center;
+}
+.react-datepicker__year-select,
+.react-datepicker__month-select select:focus {
+  border-color: #955ca6 !important;
+}
+
+.PhoneInputInput {
+  padding: 8px 10px;
+  margin-right: 3px;
+  border: 1px solid rgb(209 213 219);
+  border-radius: 7px;
+  outline: none;
+  background: #fff;
+}
+
+.underlinephone > .PhoneInputInput {
+  border: 0px;
+  border-bottom: 1px solid rgb(209 213 219);
+  border-radius: 0px;
+}
+
+.underlinephone > .PhoneInputInput:focus {
+  border: 0px;
+  border-bottom: 2px solid #955ca6 !important;
+  border-radius: 0px;
+}
+
+.PhoneInputInput:focus {
+  border: 2px solid #955ca6;
+}
+
+.PhoneInputCountrySelect {
+  padding: 2px 4px;
+}
+@layer base {
+  button {
+    @apply hover:scale-[1.01];
+  }
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: inner-spin-button;
+    display: inline-block;
+    cursor: default;
+    flex: 0 0 auto;
+    align-self: stretch;
+    -webkit-user-select: none;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-user-modify: read-only;
+  }
+}
+
+@layer utilities {
+  /* https://github.com/tailwindlabs/tailwindcss/discussions/2394 */
+  /* Chrome, Safari and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* safari and chrome */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-default {
+    /* IE and Edge */
+    -ms-overflow-style: auto; /* firefox */
+    scrollbar-width: auto;
+  }
+
+  /* safari and chrome */
+  .scrollbar-default::-webkit-scrollbar {
+    display: "block";
+  }
+
+  .td-padded + td:not(:first-child) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+  }
+}
+
+@layer components {
+  .text-description {
+    @apply font-medium text-placeholder-gray;
+  }
+
+  .card {
+    @apply rounded-lg border bg-white p-6 shadow-md;
+  }
+  /*Steper*/
+  .stepper-next {
+    background: linear-gradient(90deg, #955ca6 50%, rgb(209 213 219) 50%);
+  }
+
+  .simple-title {
+    @apply mb-1 text-xl font-semibold;
+  }
+
+  /*  settings  */
+
+  .settings-container {
+    @apply mb-3 flex w-full max-w-xl flex-col gap-2;
+  }
+
+  .settings-container-item {
+    @apply mx-6 flex flex-row items-center border-b border-gray-400 border-opacity-40 pb-2;
+  }
+
+  .settings-checkbox {
+    @apply ml-auto h-5 w-5 flex-none;
+  }
+
+  .settings-description {
+    @apply text-gray-800;
+  }
+
+  /*  settings  END*/
+
+  /*  Proposals  */
+  .proposal-option {
+    @apply cursor-pointer p-1 font-normal uppercase;
+  }
+  .simple-title {
+    @apply mb-1 border-b border-gray-200 text-xl font-semibold;
+  }
+
+  .tab {
+    @apply my-2 cursor-pointer text-lg font-medium
+        text-gray-600;
+  }
+
+  .tab--active {
+    @apply font-bold text-gray-800;
+  }
+
+  .tab-icon {
+    @apply h-6 w-6 font-semibold text-gray-600;
+  }
+
+  .tab-icon--active {
+    @apply h-7 w-7 font-bold text-gray-800;
+  }
+
+  /*link*/
+  .default-link {
+    @apply mb-auto cursor-pointer text-sm font-normal text-primary-base underline hover:scale-105;
+  }
+
+  /* Moderated content */
+
+  .moderated-card__field-title {
+    @apply mt-2 mb-1 font-semibold text-gray-700;
+  }
+  .moderated-card__field-text--expanded {
+    @apply max-h-60 w-full overflow-y-auto whitespace-normal text-gray-600;
+  }
+  /* */
+}

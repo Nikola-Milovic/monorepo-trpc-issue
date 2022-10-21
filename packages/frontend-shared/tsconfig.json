@@ -1,0 +1,14 @@
+{
+  "extends": "tsconfig/react-library.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "paths": {
+      "@company/frontend-shared/*": ["src/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["dist", "build", "node_modules"]
+}

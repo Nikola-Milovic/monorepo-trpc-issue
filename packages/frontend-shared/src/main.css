@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --PhoneInput-color--focus: #955ca6 !important;
+}
+.flex-row-centered {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.flex-row-centered .flex-fix-item:first-child {
+  margin-left: auto;
+}
+
+.flex-row-centered .flex-fix-item:last-child {
+  margin-right: auto;
+}
+
+.react-datepicker__year-select,
+.react-datepicker__month-select {
+  padding: 4px 4px 4px 4px;
+  background: #ffffff;
+  text-align: center;
+}
+.react-datepicker__year-select,
+.react-datepicker__month-select select:focus {
+  border-color: #955ca6 !important;
+}
+
+.PhoneInputInput {
+  padding: 8px 10px;
+  margin-right: 3px;
+  border: 1px solid rgb(209 213 219);
+  border-radius: 7px;
+  outline: none;
+  background: #fff;
+}
+
+.underlinephone > .PhoneInputInput {
+  border: 0px;
+  border-bottom: 1px solid rgb(209 213 219);
+  border-radius: 0px;
+}
+
+.underlinephone > .PhoneInputInput:focus {
+  border: 0px;
+  border-bottom: 2px solid #955ca6 !important;
+  border-radius: 0px;
+}
+
+.PhoneInputInput:focus {
+  border: 2px solid #955ca6;
+}
+
+.PhoneInputCountrySelect {
+  padding: 2px 4px;
+}
+@layer base {
+  button {
+    @apply hover:scale-[1.01];
+  }
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: inner-spin-button;
+    display: inline-block;
+    cursor: default;
+    flex: 0 0 auto;
+    align-self: stretch;
+    -webkit-user-select: none;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-user-modify: read-only;
+  }
+}
+
+@layer utilities {
+  /* https://github.com/tailwindlabs/tailwindcss/discussions/2394 */
+  /* Chrome, Safari and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* safari and chrome */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-default {
+    /* IE and Edge */
+    -ms-overflow-style: auto; /* firefox */
+    scrollbar-width: auto;
+  }
+
+  /* safari and chrome */
+  .scrollbar-default::-webkit-scrollbar {
+    display: "block";
+  }
+
+  .td-padded + td:not(:first-child) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+  }
+}
+
+@layer components {
+  .text-description {
+    @apply font-medium text-placeholder-gray;
+  }
+
+  .card {
+    @apply rounded-lg border bg-white p-6 shadow-md;
+  }
+  /*Steper*/
+  .stepper-next {
+    background: linear-gradient(90deg, #955ca6 50%, rgb(209 213 219) 50%);
+  }
+
+  .simple-title {
+    @apply mb-1 text-xl font-semibold;
+  }
+
+  /*  TABS */
+
+  .tab {
+    @apply my-2 cursor-pointer text-lg font-medium
+        text-gray-600;
+  }
+
+  .tab--active {
+    @apply font-bold text-gray-800;
+  }
+
+  .tab-icon {
+    @apply h-6 w-6 font-semibold text-gray-600;
+  }
+
+  .tab-icon--active {
+    @apply h-7 w-7 font-bold text-gray-800;
+  }
+
+  /* Material Tailwind Input */
+  .mt-input + label:after {
+    content: "";
+    @apply pointer-events-none absolute top-0.5 left-0 h-full w-full scale-x-0 transform border border-t-0 border-l-0 border-r-0 border-b-2 transition-all duration-300;
+  }
+  .mt-input:focus + label:after {
+    @apply scale-x-100;
+  }
+  .mt-input:focus + label span,
+  .mt-input:not(:placeholder-shown) + label span {
+    top: -14%;
+    @apply text-xs leading-tight;
+  }
+  .texterea:focus + label span,
+  .texterea:not(:placeholder-shown) + label span {
+    top: -22px !important;
+  }
+  /* Material Tailwind Input Outline */
+  .mt-input-outline:focus,
+  .mt-input-outline:not(:placeholder-shown) {
+    border-top: transparent !important;
+  }
+  .mt-input-outline + label {
+    line-height: 3.625 !important;
+  }
+  .mt-input-outline:focus + label,
+  .mt-input-outline:not(:placeholder-shown) + label {
+    @apply text-xs leading-tight !important;
+  }
+  .mt-input-outline + label:before,
+  .mt-input-outline + label:after {
+    content: "";
+    @apply pointer-events-none mt-1.5 box-border block h-2 w-2.5 border border-t-2 border-b-0 border-l-0 border-r-0 border-transparent;
+  }
+  .mt-input-outline:not(:placeholder-shown) + label:before,
+  .mt-input-outline:not(:placeholder-shown) + label:after {
+    @apply border-t border-gray-300;
+  }
+  .mt-input-outline:focus + label::before,
+  .mt-input-outline:focus + label::after {
+    @apply border-t-2;
+  }
+  .mt-input-outline:focus {
+    @apply border-2;
+  }
+  .mt-input-outline + label:before {
+    @apply mr-1 rounded-tl-lg;
+  }
+  .mt-input-outline + label:after {
+    @apply ml-1 flex-grow rounded-tr-lg;
+  }
+  /* Read only */
+  .mt-input-outline-readonly + label:before {
+    @apply mr-1 rounded-tl-lg;
+  }
+  .mt-input-outline-readonly:focus {
+    @apply border-2;
+  }
+  .mt-input-outline-readonly + label:after {
+    @apply ml-1 flex-grow rounded-tr-lg;
+  }
+  .mt-input-outline-readonly + label:before,
+  .mt-input-outline-readonly + label:after {
+    content: "";
+    @apply pointer-events-none mt-1.5 box-border block h-2 w-2.5 border border-t-2 border-b-0 border-l-0 border-r-0 border-transparent;
+  }
+  .mt-input-outline-readonly + label {
+    line-height: 3.625 !important;
+  }
+  /* Select */
+  select {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  /* Input Colors */
+  .mt-input-primary-base:focus + label:after {
+    @apply border-primary-base;
+  }
+  .mt-input-red-500:focus + label:after {
+    @apply border-red-500;
+  }
+  .mt-input-green-500:focus + label:after {
+    @apply border-green-500;
+  }
+  /* Material Tailwind Input Outline Colors */
+  .mt-input-outline-primary-base:focus,
+  .mt-input-outline-primary-base:focus + label,
+  .mt-input-outline-primary-base:focus + label:before,
+  .mt-input-outline-primary-base:focus + label:after {
+    @apply border-primary-base text-primary-base;
+  }
+
+  .mt-input-outline-red-500:focus,
+  .mt-input-outline-red-500:focus + label,
+  .mt-input-outline-red-500:focus + label:before,
+  .mt-input-outline-red-500:focus + label:after {
+    @apply border-red-500 text-red-500;
+  }
+  .mt-input-outline-error:not(:placeholder-shown) + label,
+  .mt-input-outline-error:not(:placeholder-shown) + label:before,
+  .mt-input-outline-error:not(:placeholder-shown) + label:after {
+    @apply border-red-500 text-red-500;
+  }
+  .mt-input-outline-success:not(:placeholder-shown) + label,
+  .mt-input-outline-success:not(:placeholder-shown) + label:before,
+  .mt-input-outline-success:not(:placeholder-shown) + label:after {
+    @apply border-green-500 text-green-500;
+  }
+}

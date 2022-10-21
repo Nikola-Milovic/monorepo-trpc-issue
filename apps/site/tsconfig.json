@@ -1,0 +1,21 @@
+{
+  "extends": "tsconfig/nextjs.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "outDir": "dist",
+    "module": "esnext",
+    "incremental": true,
+    "paths": {
+      "@company/backend/trpc": ["../backend/src/api"],
+      "@company/frontend-shared/*": ["../../packages/frontend-shared/src/*"],
+      "@company/frontend-shared": [
+        "../../packages/frontend-shared/src/index.tsx"
+      ],
+      "@/trpc": ["./src/lib/APIProvider.ts"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
