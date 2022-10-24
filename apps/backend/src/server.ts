@@ -9,7 +9,7 @@ async function startServer() {
     app = express();
 
     server = app
-        .listen(3000, () => {})
+        .listen(3000, () => { })
         .on("error", (err) => {
             process.exit(1);
         });

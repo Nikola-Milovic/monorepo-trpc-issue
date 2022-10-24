@@ -10,6 +10,8 @@ import { Logger } from "winston";
 import Container from "typedi";
 import { Context, sessionContext } from "./context";
 import { isAuthed } from "./middleware";
+import { Profile } from "@/types/user"
+import { z } from "zod";
 
 const logger: Logger = Container.get("logger");
 
@@ -29,6 +31,22 @@ export const protectedProcedure = trpc.procedure.use(isAuthed);
 export const appRouter = trpc.router({
     user: userRouter,
 });
+
+export type ProfileType = Profile;
+
+const emailValidator = z.object({
+    business: z.string().email(),
+    valid: z.boolean()
+});
+export type EmailType = z.infer<typeof emailValidator>;
+
+export type Test = {
+    some: string;
+    foo: {
+        bar: string;
+    }
+    email: EmailType;
+}
 
 // export type definition of API
 export type AppRouter = typeof appRouter;
